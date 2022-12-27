@@ -3,14 +3,14 @@ import  { MongoClient }  from "mongodb";
 import * as dotenv from "dotenv";
 import pizzaRouter from './Routes/pizza.route.js';
 import customerRouter from "./Routes/customers.route.js"
-// import cors from 'cors';
+import cors from 'cors';
 
 
 dotenv.config()
 
 const app = express();
 
-// app.use(cors())1
+app.use(cors())1
 
 
 const PORT=process.env.PORT;
