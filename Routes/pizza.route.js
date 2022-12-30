@@ -13,8 +13,8 @@ router.get("/",  async function (request, response) {
 
   router.get("/:id",async function (request, response) {
     const { id } = request.params;
-    const pizza = await client.db("test").collection("pizza").findOne({id : id})
-    movie ? response.send(pizza) : response.status(404).send({msg : "pizza not found"});
+    const pizza = await client.db("test").collection("pizza").findOne({id : +id})
+    pizza ? response.send(pizza) : response.status(404).send({msg : "pizza not found"});
   });
   
 
