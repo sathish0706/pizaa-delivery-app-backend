@@ -16,7 +16,7 @@ async function genHashedPassword (password) {
 }
 genHashedPassword("password@123")
   
-  router.post("/signin" , async function (request, response) {
+  router.post("/signup" , async function (request, response) {
     const { username, password } = request.body;
     
     const userFromDB = await getCustomerByName(username)
