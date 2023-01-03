@@ -29,7 +29,7 @@ router.get("/",  async function (request, response) {
   router.delete("/:id", async function (request, response) {
     const { id } = request.params;
     console.log(id);
-    const result = await client.db("test").collection("pizza").deleteOne({ id: id });
+    const result = await client.db("test").collection("pizza").deleteOne({ id: +id });
     console.log(result);
     result.deletedCount > 0 
     ? response.send({ msg : "pizza was deleted successfully"})
@@ -40,7 +40,7 @@ router.get("/",  async function (request, response) {
   router.put("/:id" , async function (request, response) {
     const { id } = request.params;
     const data = request.body;
-    const result = await client.db("test").collection("pizza").updateOne({id : id}, {$set : data})
+    const result = await client.db("test").collection("pizza").updateOne({id : +id}, {$set : data})
     result ? response.send(result) : response.status(404).send({msg : "movie not found"});
   });
   
