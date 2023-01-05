@@ -25,6 +25,12 @@ router.get("/",  async function (request, response) {
     response.send(res)
   });
   
+ router.post("/" , async function (request, response) {
+    const data = request.body;
+    const res = await client.db("test").collection("pizza").insertOne(data);
+    response.send(res)
+  });
+  
   
   router.delete("/:id", async function (request, response) {
     const { id } = request.params;
